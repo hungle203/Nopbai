@@ -1,0 +1,111 @@
+<html>
+<head>
+<title>HumanManager.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #f97bb0; font-weight: bold;}
+.s1 { color: #dfdfe0;}
+.s2 { color: #ff806c;}
+.s3 { color: #d7c781;}
+</style>
+</head>
+<body bgcolor="#292a30">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+HumanManager.java</font>
+</center></td></tr></table>
+<pre><span class="s0">import </span><span class="s1">java.util.ArrayList;</span>
+<span class="s0">import </span><span class="s1">java.util.Scanner;</span>
+
+<span class="s0">public class </span><span class="s1">HumanManager {</span>
+    <span class="s0">private </span><span class="s1">ArrayList&lt;Human&gt; humans;</span>
+    <span class="s0">private </span><span class="s1">Scanner scanner = </span><span class="s0">new </span><span class="s1">Scanner(System.in);</span>
+
+    <span class="s0">public </span><span class="s1">HumanManager() {</span>
+        <span class="s0">this</span><span class="s1">.humans = </span><span class="s0">new </span><span class="s1">ArrayList&lt;&gt;();</span>
+    <span class="s1">}</span>
+
+    <span class="s0">public void </span><span class="s1">displayAllHuman() {</span>
+        <span class="s0">for </span><span class="s1">(Human h : humans) {</span>
+            <span class="s1">System.out.println(h);</span>
+        <span class="s1">}</span>
+    <span class="s1">}</span>
+
+    <span class="s0">public void </span><span class="s1">addHuman(Human human) {</span>
+        <span class="s1">humans.add(human);</span>
+    <span class="s1">}</span>
+
+    <span class="s0">public </span><span class="s1">Human humanUpdate(String name) {</span>
+        <span class="s1">Human humanUpdate = </span><span class="s0">null</span><span class="s1">;</span>
+        <span class="s0">for </span><span class="s1">(Human human : humans) {</span>
+            <span class="s0">if </span><span class="s1">(human.getName() == name) {</span>
+                <span class="s1">humanUpdate = human;</span>
+                <span class="s0">break</span><span class="s1">;</span>
+            <span class="s1">}</span>
+        <span class="s1">}</span>
+        <span class="s0">if </span><span class="s1">(humanUpdate != </span><span class="s0">null</span><span class="s1">) {</span>
+            <span class="s1">System.out.println(</span><span class="s2">&quot;Nhập tên mới: &quot;</span><span class="s1">);</span>
+            <span class="s1">String n = scanner.nextLine();</span>
+            <span class="s1">humanUpdate.setName(n);</span>
+            <span class="s1">System.out.println(</span><span class="s2">&quot;Nhập tuổi mới: &quot;</span><span class="s1">);</span>
+            <span class="s0">int </span><span class="s1">age = scanner.nextInt();</span>
+            <span class="s1">humanUpdate.setAge(age);</span>
+            <span class="s1">System.out.println(</span><span class="s2">&quot;Nhập giới tính mới: &quot;</span><span class="s1">);</span>
+            <span class="s1">String gen = scanner.nextLine();</span>
+            <span class="s1">humanUpdate.setGender(gen);</span>
+            <span class="s0">return </span><span class="s1">humanUpdate;</span>
+        <span class="s1">}</span>
+        <span class="s0">return null</span><span class="s1">;</span>
+    <span class="s1">}</span>
+
+    <span class="s0">public </span><span class="s1">ArrayList&lt;Human&gt; displayByName(String name) {</span>
+        <span class="s1">ArrayList&lt;Human&gt; human = </span><span class="s0">new </span><span class="s1">ArrayList&lt;&gt;();</span>
+        <span class="s0">for </span><span class="s1">(Human h : humans) {</span>
+            <span class="s0">if </span><span class="s1">(h.getName().equals(name)) {</span>
+                <span class="s1">human.add(h);</span>
+            <span class="s1">}</span>
+        <span class="s1">}</span>
+        <span class="s0">return </span><span class="s1">human;</span>
+
+    <span class="s1">}</span>
+
+    <span class="s0">public </span><span class="s1">ArrayList&lt;Human&gt; displayByGender(String gender) {</span>
+        <span class="s1">ArrayList&lt;Human&gt; human = </span><span class="s0">new </span><span class="s1">ArrayList&lt;&gt;();</span>
+        <span class="s0">for </span><span class="s1">(Human h : humans) {</span>
+            <span class="s0">if </span><span class="s1">(h.getGender().equals(gender)) {</span>
+                <span class="s1">human.add(h);</span>
+            <span class="s1">}</span>
+        <span class="s1">}</span>
+        <span class="s0">return </span><span class="s1">human;</span>
+    <span class="s1">}</span>
+
+    <span class="s0">public </span><span class="s1">ArrayList&lt;Human&gt; displayByAge() {</span>
+
+        <span class="s1">ArrayList&lt;Human&gt; human = </span><span class="s0">new </span><span class="s1">ArrayList&lt;&gt;();</span>
+        <span class="s0">for </span><span class="s1">(Human h : humans) {</span>
+            <span class="s0">if </span><span class="s1">(h.getAge() &lt; </span><span class="s3">20</span><span class="s1">) {</span>
+                <span class="s1">human.add(h);</span>
+            <span class="s1">}</span>
+        <span class="s1">}</span>
+        <span class="s0">return </span><span class="s1">human;</span>
+    <span class="s1">}</span>
+
+    <span class="s0">public </span><span class="s1">Human createHuman(Scanner scanner) {</span>
+        <span class="s1">scanner.nextLine();</span>
+        <span class="s1">System.out.println(</span><span class="s2">&quot;Nhập vào tên: &quot;</span><span class="s1">);</span>
+        <span class="s1">String name = scanner.nextLine();</span>
+        <span class="s1">System.out.println(</span><span class="s2">&quot;Nhập vào tuổi &quot;</span><span class="s1">);</span>
+        <span class="s0">int </span><span class="s1">age = scanner.nextInt();</span>
+        <span class="s1">System.out.println(</span><span class="s2">&quot;Nhập vào giới tính: &quot;</span><span class="s1">);</span>
+        <span class="s1">String gen = scanner.nextLine();</span>
+        <span class="s1">System.out.println(</span><span class="s2">&quot;Nhập vào địa chỉ: &quot;</span><span class="s1">);</span>
+        <span class="s1">String add = scanner.nextLine();</span>
+        <span class="s0">return new </span><span class="s1">Human(name, age, gen, add);</span>
+
+    <span class="s1">}</span>
+
+<span class="s1">}</span>
+</pre>
+</body>
+</html>
