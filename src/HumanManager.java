@@ -56,6 +56,7 @@ public class HumanManager {
     public ArrayList<Human> displayByGender(String gender) {
         ArrayList<Human> human = new ArrayList<>();
         for (Human h : humans) {
+
             if (h.getGender().equals(gender)) {
                 human.add(h);
             }

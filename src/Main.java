@@ -15,8 +15,7 @@ public class Main {
             System.out.println("2. Sửa một ngưởi theo tên");
             System.out.println("3. Xóa một người theo tên");
             System.out.println("4. Hiển thị tất cả người");
-            System.out.println("5. Hiển thị tất cả nam");
-            System.out.println("6. Hiển thị tất cả nữ");
+            System.out.println("5. Hiển thị tất theo giới tính");
             System.out.println("7. Hiển thị tất cả người dưới 20 tuổi");
             System.out.println("8. Hiển thị tất cả người theo tên nhập vào");
             System.out.println("0. Exit");
@@ -42,21 +41,14 @@ public class Main {
                     humanManager.displayAllHuman();
                     break;
                 case 5:
-                    System.out.println("Nhập vào giới tính muốn hiển thị");
-                    String gender = scanner.nextLine();
-                    if (gender.equals("Nam")) {
-                }
-
+                    System.out.println("Nhập giới tính muốn hiện");
+                    String gen = scanner.nextLine();
+                   humanManager.displayByGender(gen);
                     break;
-
                 case 6:
-                    System.out.println();
-
-                    break;
-                case 7:
                     humanManager.displayByAge();
                     break;
-                case 8:
+                case 7:
                     System.out.println("Nhập vào tên muốn hiển thị");
                     String nameDisplay = scanner.nextLine();
                     ArrayList<Human> humans = new ArrayList<>();
